@@ -15,48 +15,314 @@
     <section id="intro">
       <h2>Abstract</h2>
       <p>
-        This website presents simulation results from our paper on offline RL.
-        Below, we compare five methods on the <b>cube-single-play</b> task.
+        Hierarchical goal-conditioned reinforcement learning (H-GCRL) provides a powerful framework for tackling complex, long-horizon tasks by decomposing them into structured subgoals. However, its practical adoption is hindered by poor data efficiency and limited policy expressivity, 
+        especially in offline or data-scarce regimes. In this work, Normalizing flow-based hierarchical implicit Q-learning (NF-HIQL), a novel framework that replaces unimodal Gaussian policies with expressive normalizing flow policies at both the high- and low-levels of the hierarchy 
+        is introduced. This design enables tractable log-likelihood computation, efficient sampling, and the ability to model rich multimodal behaviors. New theoretical guarantees are derived, including explicit KL-divergence bounds for RealNVP policies and PAC-style sample efficiency 
+        results, showing that NF-HIQL preserves stability while improving generalization. Empirically, NF-HIQL is evaluted across diverse long-horizon tasks in locomotion, ball-dribbling, and multi-step manipulation from OGBench. NF-HIQL consistently outperforms prior goal-conditioned 
+        and hierarchical baselines, demonstrating superior robustness under limited data and highlighting the potential of flow-based architectures for scalable, data-efficient hierarchical reinforcement learning.
       </p>
     </section>
 
     <section id="results">
-      <h2>Simulation 3: Cube-Single-Play</h2>
-      <div class="video-grid">
-        <div>
-          <h3>BESO</h3>
-          <video src="videos/fail_3.mp4" controls></video>
-        </div>
-        <div>
-          <h3>GCIQL</h3>
-          <video src="videos/fail_3.mp4" controls></video>
-        </div>
-        <div>
-          <h3>HIQL</h3>
-          <video src="videos/fail_3.mp4" controls></video>
-        </div>
-        <div>
-          <h3>NF-GCIQL</h3>
-          <video src="videos/fail_3.mp4" controls></video>
-        </div>
-        <div>
-          <h3>NF-HIQL</h3>
-          <video src="videos/fail_3.mp4" controls></video>
-        </div>
-      </div>
+      <h2>Results</h2>
+
+      <!-- ===== Environment template (x5) =====
+           Duplicate this block and replace ENV_ID, ENV_TITLE, ENV_DESC, TASK_* labels and file names.
+           Video file naming convention (recommended):
+           videos/ENV_ID/TASK_ID/{beso|gciql|hiql|nf-gciql|nf-hiql}.mp4
+      -->
+
+      <!-- ========== Environment 1 ========== -->
+      <article class="env" id="env-1">
+        <h3 class="env-title">Environment 1: antmaze-medium-navigate</h3>
+        <p class="env-desc">
+          In antmaze-medium-navigate, a quadruped MuJoCo Ant with 8 DoF must traverse a medium-sized maze—matching the classic AntMaze “medium” layout—to reach a 
+          designated goal region using only sparse, goal-reach rewards. The accompanying navigate dataset contains long-horizon trajectories, making the task a 
+          strong test of subgoal discovery and global planning while maintaining stable low-level locomotion from fixed offline data.
+        </p>
+
+        <!-- Task A -->
+        <section class="task" id="env-1-task-a">
+          <h4 class="task-title">Task 1:</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/antmaze-medium-navigate/t1/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/antmaze-medium-navigate/t1/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/antmaze-medium-navigate/t1/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/antmaze-medium-navigate/t1/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/antmaze-medium-navigate/t1/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+
+        <!-- Task B -->
+        <section class="task" id="env-1-task-b">
+          <h4 class="task-title">Task B: Place on Platform</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env1/taskB/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env1/taskB/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env1/taskB/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env1/taskB/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env1/taskB/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+
+        <!-- Task C -->
+        <section class="task" id="env-1-task-c">
+          <h4 class="task-title">Task C: Slide to Target</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env1/taskC/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env1/taskC/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env1/taskC/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env1/taskC/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env1/taskC/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+
+        <!-- Task D -->
+        <section class="task" id="env-1-task-d">
+          <h4 class="task-title">Task D: Avoid Obstacle</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env1/taskD/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env1/taskD/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env1/taskD/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env1/taskD/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env1/taskD/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+
+        <!-- Task E -->
+        <section class="task" id="env-1-task-e">
+          <h4 class="task-title">Task E: Long-Horizon Rearrange</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env1/taskE/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env1/taskE/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env1/taskE/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env1/taskE/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env1/taskE/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+      </article>
+
+      <!-- ========== Environment 2 ========== -->
+      <article class="env" id="env-2">
+        <h3 class="env-title">Environment 2: Scene-Play</h3>
+        <p class="env-desc">
+          Multi-object rearrangement with spatial constraints and distractors, emphasizing long-horizon planning and subgoal discovery.
+        </p>
+        <!-- Tasks A–E (same structure as above; update paths) -->
+        <section class="task"><h4 class="task-title">Task A: Two-Object Sort</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env2/taskA/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env2/taskA/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env2/taskA/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env2/taskA/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env2/taskA/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task B: Shelf Arrange</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env2/taskB/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env2/taskB/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env2/taskB/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env2/taskB/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env2/taskB/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task C: Container Pack</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env2/taskC/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env2/taskC/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env2/taskC/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env2/taskC/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env2/taskC/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task D: Avoid & Place</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env2/taskD/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env2/taskD/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env2/taskD/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env2/taskD/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env2/taskD/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task E: Multi-Step Rearrange</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env2/taskE/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env2/taskE/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env2/taskE/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env2/taskE/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env2/taskE/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+      </article>
+
+      <!-- ========== Environment 3 ========== -->
+      <article class="env" id="env-3">
+        <h3 class="env-title">Environment 3: AntMaze-Medium-Navigate</h3>
+        <p class="env-desc">
+          Locomotion navigation through narrow corridors with sparse rewards and deceptive cul-de-sacs.
+        </p>
+        <!-- Tasks A–E -->
+        <section class="task"><h4 class="task-title">Task A: Straight Maze</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env3/taskA/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env3/taskA/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env3/taskA/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env3/taskA/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env3/taskA/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task B: Zigzag Maze</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env3/taskB/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env3/taskB/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env3/taskB/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env3/taskB/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env3/taskB/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task C: Key & Door</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env3/taskC/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env3/taskC/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env3/taskC/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env3/taskC/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env3/taskC/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task D: Dynamic Obstacles</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env3/taskD/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env3/taskD/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env3/taskD/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env3/taskD/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env3/taskD/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task E: Long-Horizon Navigate</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env3/taskE/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env3/taskE/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env3/taskE/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env3/taskE/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env3/taskE/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+      </article>
+
+      <!-- ========== Environment 4 ========== -->
+      <article class="env" id="env-4">
+        <h3 class="env-title">Environment 4: AntSoccer-Medium-Navigate</h3>
+        <p class="env-desc">
+          Ball-dribbling with underactuated dynamics; requires coordination between navigation and contact control.
+        </p>
+        <!-- Tasks A–E (update paths) -->
+        <section class="task"><h4 class="task-title">Task A: Straight Dribble</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env4/taskA/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env4/taskA/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env4/taskA/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env4/taskA/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env4/taskA/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task B: Zigzag Dribble</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env4/taskB/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env4/taskB/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env4/taskB/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env4/taskB/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env4/taskB/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task C: Obstacle Dribble</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env4/taskC/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env4/taskC/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env4/taskC/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env4/taskC/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env4/taskC/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task D: Gate Score</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env4/taskD/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env4/taskD/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env4/taskD/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env4/taskD/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env4/taskD/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task E: Long-Horizon Dribble</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env4/taskE/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env4/taskE/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env4/taskE/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env4/taskE/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env4/taskE/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+      </article>
+
+      <!-- ========== Environment 5 ========== -->
+      <article class="env" id="env-5">
+        <h3 class="env-title">Environment 5: AntSoccer-Arena-Navigate</h3>
+        <p class="env-desc">
+          Large arena with variable friction and moving distractors; emphasizes robustness and hierarchical temporal abstraction.
+        </p>
+        <!-- Tasks A–E (update paths) -->
+        <section class="task"><h4 class="task-title">Task A: Center Goal</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env5/taskA/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env5/taskA/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env5/taskA/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env5/taskA/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env5/taskA/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task B: Corner Goal</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env5/taskB/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env5/taskB/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env5/taskB/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env5/taskB/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env5/taskB/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task C: Defender Avoid</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env5/taskC/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env5/taskC/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env5/taskC/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env5/taskC/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env5/taskC/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task D: Slippery Dribble</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env5/taskD/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env5/taskD/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env5/taskD/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env5/taskD/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env5/taskD/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+        <section class="task"><h4 class="task-title">Task E: Long-Horizon Arena</h4>
+          <div class="video-grid">
+            <div><h5>BESO</h5><video src="videos/env5/taskE/beso.mp4" controls></video></div>
+            <div><h5>GCIQL</h5><video src="videos/env5/taskE/gciql.mp4" controls></video></div>
+            <div><h5>HIQL</h5><video src="videos/env5/taskE/hiql.mp4" controls></video></div>
+            <div><h5>NF-GCIQL</h5><video src="videos/env5/taskE/nf-gciql.mp4" controls></video></div>
+            <div><h5>NF-HIQL</h5><video src="videos/env5/taskE/nf-hiql.mp4" controls></video></div>
+          </div>
+        </section>
+      </article>
     </section>
 
-    <section id="references">
-      <h2>References</h2>
-      <p>
-        S. Park, D. Ghosh, B. Eysenbach, and S. Levine, "Hiql: Offline goal-conditioned RL," NeurIPS 2023. <br>
-        M. Reuss, M. Li, X. Jia, and R. Lioutikov, "Goal-conditioned imitation learning," arXiv:2304.02532, 2023.
-      </p>
-    </section>
   </main>
 
   <footer>
-    <p>© 2025 Your Name | Hosted on GitHub Pages</p>
+    <p>© 2025 | Hosted on GitHub Pages</p>
   </footer>
 </body>
 </html>
