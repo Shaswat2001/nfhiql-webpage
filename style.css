@@ -1,38 +1,59 @@
+/* ================================
+   style.css — Research Results Site
+   ================================ */
+
+/* Optional: load Inter (clean, modern) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
+
+/* ---------- Theme Tokens ---------- */
+:root {
+  --body-font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+               Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --heading-font: var(--body-font);
+
+  --bg: #fafafa;
+  --text: #222;
+  --muted: #444;
+
+  --accent: #002b5c;   /* header background */
+  --card-bg: #ffffff;
+  --border: #dddddd;
+  --shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  background: #fafafa;
-  color: #222;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.6;
+  font-family: var(--body-font);
 }
 
+/* Links */
+a { color: inherit; text-decoration: underline; }
+a:hover { text-decoration: none; }
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+  font-family: var(--heading-font);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.25;
+}
+
+/* Paragraph spacing */
+p { margin: 0 0 1rem 0; }
+
+/* ---------- Header & Footer ---------- */
 header {
-  background: #002b5c;
-  color: white;
-  padding: 1rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 1.2rem 1rem;
   text-align: center;
-}
-
-h1, h2 {
-  margin-bottom: 0.5rem;
-}
-
-main {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-}
-
-video {
-  width: 100%;
-  border: 2px solid #444;
-  border-radius: 8px;
 }
 
 footer {
@@ -40,4 +61,111 @@ footer {
   padding: 1rem;
   background: #eee;
   margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* ---------- Layout ---------- */
+main {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section { margin: 2rem 0; }
+
+/* ---------- Environments & Tasks ---------- */
+.env {
+  margin: 2.5rem 0;
+}
+
+.env-title {
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.env-desc {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.task {
+  margin: 1.25rem 0 2rem;
+}
+
+.task-title {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+}
+
+/* ---------- 5-up Video Grid ---------- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.9rem;
+}
+
+/* Each column/card */
+.video-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.6rem;
+  box-shadow: var(--shadow);
+}
+
+/* Algorithm label (centered + matching font) */
+.video-grid h3,
+.video-grid h5,
+.algo-label {
+  margin: 0;
+  text-align: center;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  letter-spacing: 0.02em; /* subtle tracking like your sample */
+  color: #111;
+}
+
+/* Video element styling */
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  border: 2px solid #444; /* paper-style border */
+  background: #000;       /* nicer look before load */
+}
+
+/* Optional: keep controls from hugging edges on tiny cards */
+video::-webkit-media-controls-panel { padding-left: 4px; padding-right: 4px; }
+
+/* ---------- Section-specific tweaks ---------- */
+#intro p {
+  max-width: 90ch;
+}
+
+/* ---------- Responsiveness ---------- */
+/* Large tablets / small laptops */
+@media (max-width: 1200px) {
+  .video-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  main { padding: 1.5rem 1rem; }
+}
+
+/* Phones (landscape/portrait) */
+@media (max-width: 700px) {
+  .video-grid { grid-template-columns: repeat(2, 1fr); }
+  header { padding: 1rem; }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .video-grid { grid-template-columns: 1fr; }
+  .task { margin-bottom: 1.5rem; }
 }
