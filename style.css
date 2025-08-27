@@ -170,24 +170,3 @@ video::-webkit-media-controls-panel { padding-left: 4px; padding-right: 4px; }
   .task { margin-bottom: 1.5rem; }
 }
 
-/* === Force centered, Inter-styled algo labels === */
-.video-grid > div {
-  text-align: center !important;           /* center any text inside the card */
-}
-
-.video-grid h1,
-.video-grid h2,
-.video-grid h3,
-.video-grid h4,
-.video-grid h5,
-.video-grid h6,
-.video-grid .algo-label {
-  margin: 0 0 0.45rem 0 !important;
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
-               Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.02em !important;
-  text-transform: uppercase !important;
-  color: #111 !important;
-  display: block !important;
-}
