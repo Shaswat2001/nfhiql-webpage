@@ -67,9 +67,16 @@ footer {
 
 /* ---------- Layout ---------- */
 main {
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none !important;   /* remove 1200px cap */
+  width: 100% !important;       /* use full viewport width */
+  margin: 0 !important;         /* remove auto-centering margins */
+  padding-left: 2rem;           /* keep some breathing room */
+  padding-right: 2rem;
+}
+
+/* Let the abstract paragraph use full width too */
+#intro p {
+  max-width: none !important;   /* was 90ch */
 }
 
 section { margin: 2rem 0; }
