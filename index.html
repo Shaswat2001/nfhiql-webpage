@@ -356,55 +356,159 @@
 
       <!-- ========== Environment 3 ========== -->
       <article class="env" id="env-3">
-        <h3 class="env-title">Environment 3: AntMaze-Medium-Navigate</h3>
+        <h3 class="env-title">Environment 3: cube-single-play</h3>
         <p class="env-desc">
-          Locomotion navigation through narrow corridors with sparse rewards and deceptive cul-de-sacs.
+          The cube-single-play task is a state-based manipulation scenario, featuring a single colored cube block and a 6-DoF robotic arm. The goal is to learn basic pick-and-place manipulation behaviors—specifically, positioning the cube into designated goal configurations.
         </p>
         <!-- Tasks A–E -->
-        <section class="task"><h4 class="task-title">Task A: Straight Maze</h4>
-          <div class="video-grid">
-            <div><h5>BESO</h5><video src="videos/env3/taskA/beso.mp4" controls></video></div>
-            <div><h5>GCIQL</h5><video src="videos/env3/taskA/gciql.mp4" controls></video></div>
-            <div><h5>HIQL</h5><video src="videos/env3/taskA/hiql.mp4" controls></video></div>
-            <div><h5>NF-GCIQL</h5><video src="videos/env3/taskA/nf-gciql.mp4" controls></video></div>
-            <div><h5>NF-HIQL</h5><video src="videos/env3/taskA/nf-hiql.mp4" controls></video></div>
-          </div>
+        <section class="task" id="env-3-task-a">
+        <h4 class="task-title">Task 1</h4>
+        <div class="video-grid">
+            <div>
+            <h5>BESO</h5>
+            <img class="media" src="videos/cube-single-play/t1/beso.gif" alt="BESO – Task 1" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>CRL</h5>
+            <img class="media" src="videos/cube-single-play/t1/crl.gif" alt="CRL – Task 1" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>GCIQL</h5>
+            <img class="media" src="videos/cube-single-play/t1/gciql.gif" alt="GCIQL – Task 1" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>HIQL</h5>
+            <img class="media" src="videos/cube-single-play/t1/hiql.gif" alt="HIQL – Task 1" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>NF-GCIQL</h5>
+            <img class="media" src="videos/cube-single-play/t1/nf-gciql.gif" alt="NF-GCIQL – Task 1" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>NF-HIQL</h5>
+            <img class="media" src="videos/cube-single-play/t1/nf-hiql.gif" alt="NF-HIQL – Task 1" loading="lazy" decoding="async">
+            </div>
+        </div>
         </section>
-        <section class="task"><h4 class="task-title">Task B: Zigzag Maze</h4>
-          <div class="video-grid">
-            <div><h5>BESO</h5><video src="videos/env3/taskB/beso.mp4" controls></video></div>
-            <div><h5>GCIQL</h5><video src="videos/env3/taskB/gciql.mp4" controls></video></div>
-            <div><h5>HIQL</h5><video src="videos/env3/taskB/hiql.mp4" controls></video></div>
-            <div><h5>NF-GCIQL</h5><video src="videos/env3/taskB/nf-gciql.mp4" controls></video></div>
-            <div><h5>NF-HIQL</h5><video src="videos/env3/taskB/nf-hiql.mp4" controls></video></div>
-          </div>
+
+        <section class="task" id="env-3-task-b">
+        <h4 class="task-title">Task 2</h4>
+        <div class="video-grid">
+            <div>
+            <h5>BESO</h5>
+            <img class="media" src="videos/cube-single-play/t2/beso.gif" alt="BESO – Task 2" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>CRL</h5>
+            <img class="media" src="videos/cube-single-play/t2/crl.gif" alt="CRL – Task 2" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>GCIQL</h5>
+            <img class="media" src="videos/cube-single-play/t2/gciql.gif" alt="GCIQL – Task 2" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>HIQL</h5>
+            <img class="media" src="videos/cube-single-play/t2/hiql.gif" alt="HIQL – Task 2" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>NF-GCIQL</h5>
+            <img class="media" src="videos/cube-single-play/t2/nf-gciql.gif" alt="NF-GCIQL – Task 2" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>NF-HIQL</h5>
+            <img class="media" src="videos/cube-single-play/t2/nf-hiql.gif" alt="NF-HIQL – Task 2" loading="lazy" decoding="async">
+            </div>
+        </div>
         </section>
-        <section class="task"><h4 class="task-title">Task C: Key & Door</h4>
-          <div class="video-grid">
-            <div><h5>BESO</h5><video src="videos/env3/taskC/beso.mp4" controls></video></div>
-            <div><h5>GCIQL</h5><video src="videos/env3/taskC/gciql.mp4" controls></video></div>
-            <div><h5>HIQL</h5><video src="videos/env3/taskC/hiql.mp4" controls></video></div>
-            <div><h5>NF-GCIQL</h5><video src="videos/env3/taskC/nf-gciql.mp4" controls></video></div>
-            <div><h5>NF-HIQL</h5><video src="videos/env3/taskC/nf-hiql.mp4" controls></video></div>
-          </div>
+
+        <section class="task" id="env-3-task-c">
+        <h4 class="task-title">Task 3</h4>
+        <div class="video-grid">
+            <div>
+            <h5>BESO</h5>
+            <img class="media" src="videos/cube-single-play/t3/beso.gif" alt="BESO – Task 3" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>CRL</h5>
+            <img class="media" src="videos/cube-single-play/t3/crl.gif" alt="CRL – Task 3" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>GCIQL</h5>
+            <img class="media" src="videos/cube-single-play/t3/gciql.gif" alt="GCIQL – Task 3" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>HIQL</h5>
+            <img class="media" src="videos/cube-single-play/t3/hiql.gif" alt="HIQL – Task 3" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>NF-GCIQL</h5>
+            <img class="media" src="videos/cube-single-play/t3/nf-gciql.gif" alt="NF-GCIQL – Task 3" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>NF-HIQL</h5>
+            <img class="media" src="videos/cube-single-play/t3/nf-hiql.gif" alt="NF-HIQL – Task 3" loading="lazy" decoding="async">
+            </div>
+        </div>
         </section>
-        <section class="task"><h4 class="task-title">Task D: Dynamic Obstacles</h4>
-          <div class="video-grid">
-            <div><h5>BESO</h5><video src="videos/env3/taskD/beso.mp4" controls></video></div>
-            <div><h5>GCIQL</h5><video src="videos/env3/taskD/gciql.mp4" controls></video></div>
-            <div><h5>HIQL</h5><video src="videos/env3/taskD/hiql.mp4" controls></video></div>
-            <div><h5>NF-GCIQL</h5><video src="videos/env3/taskD/nf-gciql.mp4" controls></video></div>
-            <div><h5>NF-HIQL</h5><video src="videos/env3/taskD/nf-hiql.mp4" controls></video></div>
-          </div>
+
+        <section class="task" id="env-3-task-d">
+        <h4 class="task-title">Task 4</h4>
+        <div class="video-grid">
+            <div>
+            <h5>BESO</h5>
+            <img class="media" src="videos/cube-single-play/t4/beso.gif" alt="BESO – Task 4" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>CRL</h5>
+            <img class="media" src="videos/cube-single-play/t4/crl.gif" alt="CRL – Task 4" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>GCIQL</h5>
+            <img class="media" src="videos/cube-single-play/t4/gciql.gif" alt="GCIQL – Task 4" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>HIQL</h5>
+            <img class="media" src="videos/cube-single-play/t4/hiql.gif" alt="HIQL – Task 4" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>NF-GCIQL</h5>
+            <img class="media" src="videos/cube-single-play/t4/nf-gciql.gif" alt="NF-GCIQL – Task 4" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>NF-HIQL</h5>
+            <img class="media" src="videos/cube-single-play/t4/nf-hiql.gif" alt="NF-HIQL – Task 4" loading="lazy" decoding="async">
+            </div>
+        </div>
         </section>
-        <section class="task"><h4 class="task-title">Task E: Long-Horizon Navigate</h4>
-          <div class="video-grid">
-            <div><h5>BESO</h5><video src="videos/env3/taskE/beso.mp4" controls></video></div>
-            <div><h5>GCIQL</h5><video src="videos/env3/taskE/gciql.mp4" controls></video></div>
-            <div><h5>HIQL</h5><video src="videos/env3/taskE/hiql.mp4" controls></video></div>
-            <div><h5>NF-GCIQL</h5><video src="videos/env3/taskE/nf-gciql.mp4" controls></video></div>
-            <div><h5>NF-HIQL</h5><video src="videos/env3/taskE/nf-hiql.mp4" controls></video></div>
-          </div>
+
+        <section class="task" id="env-3-task-e">
+        <h4 class="task-title">Task 5</h4>
+        <div class="video-grid">
+            <div>
+            <h5>BESO</h5>
+            <img class="media" src="videos/cube-single-play/t5/beso.gif" alt="BESO – Task 5" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>CRL</h5>
+            <img class="media" src="videos/cube-single-play/t5/crl.gif" alt="CRL – Task 5" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>GCIQL</h5>
+            <img class="media" src="videos/cube-single-play/t5/gciql.gif" alt="GCIQL – Task 5" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>HIQL</h5>
+            <img class="media" src="videos/cube-single-play/t5/hiql.gif" alt="HIQL – Task 5" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>NF-GCIQL</h5>
+            <img class="media" src="videos/cube-single-play/t5/nf-gciql.gif" alt="NF-GCIQL – Task 5" loading="lazy" decoding="async">
+            </div>
+            <div>
+            <h5>NF-HIQL</h5>
+            <img class="media" src="videos/cube-single-play/t5/nf-hiql.gif" alt="NF-HIQL – Task 5" loading="lazy" decoding="async">
+            </div>
+        </div>
         </section>
       </article>
 
