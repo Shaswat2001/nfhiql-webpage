@@ -137,13 +137,13 @@ section { margin: 2rem 0; }
 }
 
 /* Video element styling */
-video {
+video, img.media {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 10px;
-  border: 2px solid #444; /* paper-style border */
-  background: #000;       /* nicer look before load */
+  border: 2px solid #444;
+  background: #000; /* optional */
 }
 
 /* Optional: keep controls from hugging edges on tiny cards */
